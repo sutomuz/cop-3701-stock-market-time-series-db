@@ -10,7 +10,7 @@ The system stores stock symbols, daily prices, categories, and symbol profile in
 - **Beginners** exploring historical stock prices and trends.
 
 ## ER Diagram
-![ER Diagram](<img width="768" height="687" alt="partb" src="https://github.com/user-attachments/assets/b0a53421-4256-423a-9b4b-b2163158d3c6" />)
+![ER Diagram](part_b_er_diagram.png)
 
 ## Entity Sumamry
 - **SYMBOL** - Strong entity storing ticket information
