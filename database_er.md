@@ -1,6 +1,6 @@
 # Database ER Diagram
 
-## Overwivew
+## Overview
 The ER diagram represents the stock market time-series database built from a Kaggle dataset.
 The system stores stock symbols, daily prices, categories, and symbol profile information.
 
@@ -12,7 +12,7 @@ The system stores stock symbols, daily prices, categories, and symbol profile in
 ## ER Diagram
 ![ER Diagram](part_b_er_diagram.png)
 
-## Entity Sumamry
+## Entity Summary
 - **SYMBOL** - Strong entity storing ticket information
 - **SYMBOL_PROFILE** - One-to-one entity with SYMBOL containing metadata.
 - **DAILY_PRICE** - Weak entity dependent on SYMBOL, identified by *(symbol_id, trade_date)*.
