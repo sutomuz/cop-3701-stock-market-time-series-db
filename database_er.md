@@ -13,13 +13,60 @@ The system stores stock symbols, daily prices, categories, and symbol profile in
 ![ER Diagram](part_b_er_diagram.png)
 
 ## Entity Summary
-- **SYMBOL** - Strong entity storing ticket information
+- **SYMBOL** - Strong entity storing ticker information
 - **SYMBOL_PROFILE** - One-to-one entity with SYMBOL containing metadata.
 - **DAILY_PRICE** - Weak entity dependent on SYMBOL, identified by *(symbol_id, trade_date)*.
 - **CATEGORY** - Strong entity defining classifications like stock, ETF, or sector.
-- **SYMBOL_CATEGORY** - Associate entity resolving the many-to-many relationship between SYMBOL and CATEGORY.
+- **SYMBOL_CATEGORY** - Associative entity resolving the many-to-many relationship between SYMBOL and CATEGORY.
 
 ## Relationships
 - **One-to-One:** SYMBOL -> SYMBOL_PROFILE
 - **One-to-Many:** SYMBOL -> DAILY_PRICE
 - **Many-to-Many:** SYMBOL <-> CATEGORY (via SYMBOL_CATEGORY)
+
+# Final Normalized Relational Schema (BCNF)
+Based on the ER diagram and functional dependency analysis, the following relations are in Boyce-Codd Normal Form (BCNF).
+
+## SYMBOL
+SYMBOL(
+  symbol_id PK,
+  ticker UNIQUE NOT NULL,
+  name,
+  exchange
+)
+
+## SYMBOL_PROFILE
+SYMBOL_PROFILE(
+  symbol_id PK FK → SYMBOL(symbol_id),
+  currency NOT NULL,
+  country NOT NULL,
+  description
+)
+
+## DAILY_PRICE (Weak Entity)
+DAILY_PRICE(
+  symbol_id PK FK → SYMBOL(symbol_id),
+  trade_date PK,
+  open NOT NULL,
+  high NOT NULL,
+  low NOT NULL,
+  close NOT NULL,
+  adj_close,
+  volume
+)
+
+## CATEGORY
+CATEGORY(
+  category_id PK,
+  category_name NOT NULL,
+  category_type
+)
+
+## SYMBOL_CATEGORY (Associative Entity)
+SYMBOL_CATEGORY(
+  symbol_id PK FK → SYMBOL(symbol_id),
+  category_id PK FK → CATEGORY(category_id),
+  assigned_date NOT NULL
+)
+
+All relations above were checked against their non-trivial functional dependencies and satisfy BCNF. No further decomposition was required.
