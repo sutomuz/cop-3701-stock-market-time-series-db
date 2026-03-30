@@ -7,7 +7,7 @@ drop table symbol cascade constraints;
 create table symbol (
    symbol_id number primary key,
    ticker    varchar2(15) not null unique,
-   name      varchar2(120),
+   name      varchar2(255),
    exchange  varchar2(30)
 );
 
@@ -52,3 +52,13 @@ create table symbol_category (
    constraint fk_symbol_category_category foreign key ( category_id )
       references category ( category_id )
 );
+
+ALTER TABLE SYMBOL MODIFY name VARCHAR2(255);
+
+DELETE FROM SYMBOL_CATEGORY;
+DELETE FROM DAILY_PRICE;
+DELETE FROM SYMBOL_PROFILE;
+DELETE FROM CATEGORY;
+DELETE FROM SYMBOL;
+COMMIT;
+

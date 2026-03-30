@@ -8,12 +8,10 @@ OUTPUT_PATH = "data"
 
 os.makedirs(OUTPUT_PATH, exist_ok=True)
 meta_df = pd.read_csv(META_FILE)
-
 symbols = []
 symbol_profiles = []
 daily_prices = []
 symbol_categories = []
-
 categories = [
     (10, "Stock", "Equity"),
     (11, "ETF", "Fund")
@@ -21,7 +19,6 @@ categories = [
 
 symbol_id = 1
 symbol_map = {}
-
 MAX_SYMBOLS = 120
 
 def process_folder(folder_path, category_id):
@@ -40,12 +37,32 @@ def process_folder(folder_path, category_id):
         if df.empty:
             continue
 
-        name = meta_df.loc[meta_df["Symbol"] == ticker, "Security Name"].values[0]
-        exchange = meta_df.loc[meta_df["Symbol"] == ticker, "Listing Exchange"].values[0]
+        MAX_ROWS_PER_SYMBOL = 1000
+        df = df.head(MAX_ROWS_PER_SYMBOL)
+
+        name = meta_df.loc[meta_df["Symbol"] ==
+                           ticker, "Security Name"].values[0]
+        exchange = meta_df.loc[meta_df["Symbol"] ==
+                               ticker, "Listing Exchange"].values[0]
         symbols.append((symbol_id, ticker, name, exchange))
         symbol_profiles.append((symbol_id, "USD", "USA", name))
         symbol_categories.append((symbol_id, category_id, "2020-01-01"))
 
+        df["Open"] = pd.to_numeric(df["Open"], errors="coerce")
+        df["High"] = pd.to_numeric(df["High"], errors="coerce")
+        df["Low"] = pd.to_numeric(df["Low"], errors="coerce")
+        df["Close"] = pd.to_numeric(df["Close"], errors="coerce")
+        df["Adj Close"] = pd.to_numeric(df["Adj Close"], errors="coerce")
+        df["Volume"] = pd.to_numeric(
+            df["Volume"], errors="coerce").astype("Int64")
+        df = df.round(6)
+
+        MAX_PRICE = 99999999.9999  # 12 total digits, 4 decimal places
+        price_cols = ["Open", "High", "Low", "Close", "Adj Close"]
+        for col in price_cols:
+            df = df[df[col].isna() | ((df[col] >= 0) & (df[col] <= MAX_PRICE))]
+
+        df = df.dropna()
         for _, row in df.iterrows():
             daily_prices.append((
                 symbol_id,
@@ -64,11 +81,16 @@ def process_folder(folder_path, category_id):
 process_folder(STOCKS_PATH, 10)
 process_folder(ETFS_PATH, 11)
 
-symbol_df = pd.DataFrame(symbols, columns=["symbol_id", "ticker", "name", "exchange"])
-profile_df = pd.DataFrame(symbol_profiles, columns=["symbol_id", "currency", "country", "description"])
-category_df = pd.DataFrame(categories, columns=["category_id", "category_name", "category_type"])
-symbol_category_df = pd.DataFrame(symbol_categories, columns=["symbol_id", "category_id", "assigned_date"])
-daily_price_df = pd.DataFrame(daily_prices, columns=["symbol_id", "trade_date", "open", "high", "low", "close", "adj_close", "volume"])
+symbol_df = pd.DataFrame(
+    symbols, columns=["symbol_id", "ticker", "name", "exchange"])
+profile_df = pd.DataFrame(symbol_profiles, columns=[
+                          "symbol_id", "currency", "country", "description"])
+category_df = pd.DataFrame(
+    categories, columns=["category_id", "category_name", "category_type"])
+symbol_category_df = pd.DataFrame(symbol_categories, columns=[
+                                  "symbol_id", "category_id", "assigned_date"])
+daily_price_df = pd.DataFrame(daily_prices, columns=[
+                              "symbol_id", "trade_date", "open", "high", "low", "close", "adj_close", "volume"])
 
 symbol_df.to_csv(f"{OUTPUT_PATH}/symbol.csv", index=False)
 profile_df.to_csv(f"{OUTPUT_PATH}/symbol_profile.csv", index=False)
