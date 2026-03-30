@@ -1,0 +1,121 @@
+symbol_id,ticker,name,exchange
+1,IQI,Invesco Quality Municipal Income Trust Common Stock,N
+2,STAR,iStar Inc. Common Stock,N
+3,HPE,Hewlett Packard Enterprise Company Common Stock,N
+4,AI,Arlington Asset Investment Corp Class A (new),N
+5,ZEUS,"Olympic Steel, Inc. - Common Stock",Q
+6,AMOT,"Allied Motion Technologies, Inc. - Common Stock",Q
+7,MSBF,MSB Financial Corp. - Common Stock,Q
+8,EBMT,"Eagle Bancorp Montana, Inc. - Common Stock",Q
+9,PRS,"Prudential Financial, Inc. 5.625% Junior Subordinated Notes due 2058",N
+10,ARTW,"Art's-Way Manufacturing Co., Inc. - Common Stock",Q
+11,SVM,Silvercorp Metals Inc. Common Shares,A
+12,GPI,"Group 1 Automotive, Inc. Common Stock",N
+13,ALL,Allstate Corporation (The) Common Stock,N
+14,ALTM,Altus Midstream Company - Class A Common Stock,Q
+15,LYV,"Live Nation Entertainment, Inc. Common Stock",N
+16,MBNKP,"Medallion Bank - Fixed-to-Floating Rate Non-Cumulative Perpetual Preferred Stock, Series F",Q
+17,ESGRP,Enstar Group Limited - Depositary Shares Each Representing 1/1000th of an interest in Preference Shares,Q
+18,AQN,Algonquin Power & Utilities Corp. Common Shares,N
+19,ITT,ITT Inc. Common Stock ,N
+20,ARC,"ARC Document Solutions, Inc. Common Stock",N
+21,NEBUW,Nebula Acquisition Corporation - Warrant,Q
+22,CBFV,"CB Financial Services, Inc. - Common Stock",Q
+23,PUB,People's Utah Bancorp - Common Stock,Q
+24,BATRK,Liberty Media Corporation - Series C Liberty Braves Common Stock,Q
+25,NWE,NorthWestern Corporation Common Stock,N
+26,NCZ,AllianzGI Convertible & Income Fund II Common Shares of Beneficial Interest,N
+27,SOLO,Electrameccanica Vehicles Corp. Ltd. - Common Stock,Q
+28,MNSB,"MainStreet Bancshares, Inc. - Common Stock",Q
+29,ISIG,"Insignia Systems, Inc. - Common Stock",Q
+30,CLWT,Euro Tech Holdings Company Limited - Ordinary Shares,Q
+31,SEIC,SEI Investments Company - Common Stock,Q
+32,DRH,Diamondrock Hospitality Company Common Stock,N
+33,SSPKU,Silver Spike Acquisition Corp. - Units,Q
+34,LXU,"LSB Industries, Inc. Common Stock",N
+35,JHAA,Nuveen High Income 2023 Target Term Fund Common Shares of Beneficial Interest,N
+36,MANT,ManTech International Corporation - Class A Common Stock,Q
+37,PCK,Pimco California Municipal Income Fund II Common Shares of Beneficial Interest,N
+38,HALL,"Hallmark Financial Services, Inc. - Common Stock",Q
+39,GL,Globe Life Inc. Common Stock,N
+40,BLL,Ball Corporation Common Stock,N
+41,TWNKW,"Hostess Brands, Inc. - Warrants",Q
+42,TARA,"ArTara Therapeutics, Inc.  - Common Stock",Q
+43,NICK,"Nicholas Financial, Inc. - Common Stock",Q
+44,KSM,DWS Strategic Municipal Income Trust,N
+45,MKGI,"Monaker Group, Inc. - Common Stock",Q
+46,XPO,"XPO Logistics, Inc.",N
+47,GLPI,"Gaming and Leisure Properties, Inc. - Common Stock",Q
+48,TGI,"Triumph Group, Inc. Common Stock",N
+49,XTNT,"Xtant Medical Holdings, Inc. Common Stock",A
+50,NBHC,National Bank Holdings Corporation Common Stock,N
+51,ARAY,Accuray Incorporated - Common Stock,Q
+52,ANIK,Anika Therapeutics Inc. - Common Stock,Q
+53,IPDN,"Professional Diversity Network, Inc. - Common Stock",Q
+54,MMLP,Martin Midstream Partners L.P. - Common Units Representing Limited Partnership Interests,Q
+55,TEX,Terex Corporation Common Stock,N
+56,AGNCM,AGNC Investment Corp. - Depositary Shares rep 6.875% Series D Fixed-to-Floating Cumulative Redeemable Preferred Stock,Q
+57,EGBN,"Eagle Bancorp, Inc. - Common Stock",Q
+58,DSPG,"DSP Group, Inc. - Common Stock",Q
+59,DEA,"Easterly Government Properties, Inc. Common Stock",N
+60,UNP,Union Pacific Corporation Common Stock,N
+61,WAT,Waters Corporation Common Stock,N
+62,ADX,Adams Diversified Equity Fund Inc.,N
+63,CM,Canadian Imperial Bank of Commerce Common Stock,N
+64,UVV,Universal Corporation Common Stock,N
+65,HPP,"Hudson Pacific Properties, Inc. Common Stock",N
+66,WY,Weyerhaeuser Company Common Stock,N
+67,LWAY,"Lifeway Foods, Inc. - Common Stock",Q
+68,GLOG,GasLog Ltd. Common Shares,N
+69,BLCM,"Bellicum Pharmaceuticals, Inc. - Common Stock",Q
+70,RCKT,"Rocket Pharmaceuticals, Inc. - Common Stock",Q
+71,JEMD,"Nuveen Emerging Markets Debt 2022 Target Term Fund Common Shares of Beneficial Interest, $0.01 par value per share",N
+72,XNET,Xunlei Limited - American Depositary Shares,Q
+73,LARK,Landmark Bancorp Inc. - Common Stock,Q
+74,ULBI,Ultralife Corporation - Common Stock,Q
+75,CSLT,"Castlight Health, Inc. Class B Common Stock",N
+76,TRNO,Terreno Realty Corporation Common Stock,N
+77,FSK,FS KKR Capital Corp. Common Stock,N
+78,IOSP,Innospec Inc. - Common Stock,Q
+79,CRTO,Criteo S.A. - American Depositary Shares,Q
+80,PCSB,PCSB Financial Corporation - Common Stock,Q
+81,SPXC,SPX Corporation Common Stock,N
+82,MBIO,"Mustang Bio, Inc. - Common Stock",Q
+83,SESN,"Sesen Bio, Inc. - Common Stock",Q
+84,CQP,"Cheniere Energy Partners, LP Cheniere Energy Partners, LP Common Units",A
+85,NXQ,Nuveen Select Tax Free Income Portfolio II Common Stock,N
+86,CNS,Cohen & Steers Inc Common Stock,N
+87,STAF,"Staffing 360 Solutions, Inc. - Common Stock",Q
+88,WGO,"Winnebago Industries, Inc. Common Stock",N
+89,CSSE,"Chicken Soup for the Soul Entertainment, Inc. - Class A Common Stock",Q
+90,RESI,Front Yard Residential Corporation Common Stock,N
+91,INSUU,Insurance Acquisition Corp. - Unit,Q
+92,VRS,Verso Corporation Common Stock,N
+93,FLNG,FLEX LNG Ltd. Ordinary Shares,N
+94,EQX,Equinox Gold Corp. Common Shares,A
+95,MERC,Mercer International Inc. - Common Stock,Q
+96,KRKR,36Kr Holdings Inc. - American Depositary Shares,Q
+97,KTB,"Kontoor Brands, Inc. Common Stock ",N
+98,MNOV,"MediciNova, Inc. - Common Stock",Q
+99,MEI,"Methode Electronics, Inc. Common Stock",N
+100,CABO,"Cable One, Inc. Common Stock",N
+101,MGM,MGM Resorts International Common Stock,N
+102,TEUM,Pareteum Corporation - Common Stock,Q
+103,CEO,CNOOC Limited Common Stock,N
+104,SSSS,Sutter Rock Capital Corp. - Common Stock,Q
+105,TZAC,Tenzing Acquisition Corp. - Ordinary Shares,Q
+106,ARDX,"Ardelyx, Inc. - Common Stock",Q
+107,CVGW,"Calavo Growers, Inc. - Common Stock",Q
+108,AXNX,"Axonics Modulation Technologies, Inc. - Common Stock",Q
+109,BDJ,Blackrock Enhanced Equity Dividend Trust,N
+110,TSLA,"Tesla, Inc.  - Common Stock",Q
+111,SEDG,"SolarEdge Technologies, Inc. - Common Stock",Q
+112,BFK,BlackRock Municipal Income Trust,N
+113,CIVB,"Civista Bancshares, Inc.  - Common Stock",Q
+114,GJT,"Synthetic Fixed-Income Securities, Inc. Synthetic Fixed-Income Securities, Inc. Floating Rate Structured Repackaged Asset-Backed Trust Securities Certificates, Series 2006-3",N
+115,PPG,"PPG Industries, Inc. Common Stock",N
+116,CBH,AllianzGI Convertible & Income 2024 Target Term Fund Common Shares of Beneficial Interest,N
+117,TNP,Tsakos Energy Navigation Ltd Common Shares,N
+118,DJCI,"E-TRACS Linked to the Bloomberg Commodity Index Total Return due October 31, 2039",P
+119,MEOH,Methanex Corporation - Common Stock,Q
+120,HAPP,Happiness Biotech Group Limited - Ordinary Shares,Q
