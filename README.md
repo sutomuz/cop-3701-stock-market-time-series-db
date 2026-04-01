@@ -19,6 +19,9 @@ The ER design includes:
 - An associative entity (SYMBOL_CATEGORY)
 - One-to-one, one-to-many, and many-to-many relationships
 
+## ER Diagram
+![ER Diagram](part_b_er_diagram.png)
+
 ## Goals
 The goal of this project is to build a well-structured database using the existing Kaggle stock market dataset. This project focuses on understanding core database concepts using a real-world financial dataset.
 
