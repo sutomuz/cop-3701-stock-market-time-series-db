@@ -9,7 +9,7 @@ import oracledb
 
 # DB Creds.
 username = "JNGUYEN7496_SCHEMA_1FOBA"
-password = "GHDE1ABLXQYB7GYJhGGG0QJ4ZZ$MAY"
+password = "A!2M21LAX5TXATJHE37bE1UZPR6PIZ"
 dsn = "db.freesql.com:1521/23ai_34ui2"
 
 # Class DB requires python-oracledb "thick" mode.
