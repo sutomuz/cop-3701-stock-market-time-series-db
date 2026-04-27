@@ -6,11 +6,14 @@ import os
 import threading
 
 import oracledb
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # DB Creds.
-username = "JNGUYEN7496_SCHEMA_1FOBA"
-password = "A!2M21LAX5TXATJHE37bE1UZPR6PIZ"
-dsn = "db.freesql.com:1521/23ai_34ui2"
+USERNAME = os.getenv("DB_USERNAME")
+PASSWORD = os.getenv("DB_PASSWORD")
+DSN = os.getenv("DB_DSN")
 
 # Class DB requires python-oracledb "thick" mode.
 # The Oracle Instant Client folder is per-machine, so it is read from an env var.
@@ -42,7 +45,7 @@ def get_connection():
     with _db_lock:
         _ensure_thick_mode()
         if _conn is None:
-            _conn = oracledb.connect(user=username, password=password, dsn=dsn)
+            _conn = oracledb.connect(user=USERNAME, password=PASSWORD, dsn=DSN)
         return _conn
 
 

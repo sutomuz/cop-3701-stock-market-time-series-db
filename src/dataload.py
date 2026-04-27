@@ -1,20 +1,33 @@
+import os
+from pathlib import Path
+
 import pandas as pd
 import oracledb
+from dotenv import load_dotenv
 
-oracledb.init_oracle_client(
-    lib_dir=r"C:\Users\joyhn\Downloads\cop-3701-stock-market-time-series-db-main\cop-3701-stock-market-time-series-db-main\instantclient_23_0"
-)
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
-username = "JNGUYEN7496_SCHEMA_1FOBA"
-password = "A!2M21LAX5TXATJHE37bE1UZPR6PIZ"
-dsn = "db.freesql.com:1521/23ai_34ui2"
+oracle_lib_dir = os.getenv("ORACLE_LIB_DIR")
+if oracle_lib_dir:
+    oracledb.init_oracle_client(lib_dir=oracle_lib_dir)
 
-conn = oracledb.connect(user=username, password=password, dsn=dsn)
+USERNAME = os.getenv("DB_USERNAME")
+PASSWORD = os.getenv("DB_PASSWORD")
+DSN = os.getenv("DB_DSN")
+
+print("ENV PATH:", BASE_DIR / ".env")
+print("ENV EXISTS:", (BASE_DIR / ".env").exists())
+print("USERNAME:", USERNAME)
+print("DSN:", DSN)
+
+conn = oracledb.connect(user=USERNAME, password=PASSWORD, dsn=DSN)
 cursor = conn.cursor()
 
 
 def load_table(file, table, cols, sql_override=None):
-    df = pd.read_csv(file)
+    file_path = BASE_DIR / file
+    df = pd.read_csv(file_path)
 
     if table == "DAILY_PRICE":
         df = df.head(5000)
