@@ -8,8 +8,8 @@ import threading
 import oracledb
 
 # DB Creds.
-username = "TYLERLIPPS2_SCHEMA_UEH5S"
-password = "IAK57N025Z6!PVZFBW5YRDKL3AsQR2"
+username = "JNGUYEN7496_SCHEMA_1FOBA"
+password = "GHDE1ABLXQYB7GYJhGGG0QJ4ZZ$MAY"
 dsn = "db.freesql.com:1521/23ai_34ui2"
 
 # Class DB requires python-oracledb "thick" mode.

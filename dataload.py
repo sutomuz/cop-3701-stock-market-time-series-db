@@ -6,14 +6,19 @@ oracledb.init_oracle_client(
 )
 
 username = "JNGUYEN7496_SCHEMA_1FOBA"
-password = "pKCX8W535ZFJ3GNPPPSNS#F2FWYN8M"
+password = "GHDE1ABLXQYB7GYJhGGG0QJ4ZZ$MAY"
 dsn = "db.freesql.com:1521/23ai_34ui2"
 
 conn = oracledb.connect(user=username, password=password, dsn=dsn)
 cursor = conn.cursor()
 
+
 def load_table(file, table, cols, sql_override=None):
     df = pd.read_csv(file)
+
+    if table == "DAILY_PRICE":
+        df = df.head(5000)
+
     if table == "DAILY_PRICE":
         numeric_cols = ["open", "high", "low", "close", "adj_close", "volume"]
         for col in numeric_cols:
@@ -31,6 +36,7 @@ def load_table(file, table, cols, sql_override=None):
     cursor.executemany(sql, rows)
     conn.commit()
     print(f"{table} loaded")
+
 
 load_table(
     "data/symbol.csv",

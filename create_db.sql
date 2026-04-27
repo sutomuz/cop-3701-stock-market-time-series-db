@@ -1,64 +1,66 @@
-drop table symbol_category cascade constraints;
-drop table daily_price cascade constraints;
-drop table symbol_profile cascade constraints;
-drop table category cascade constraints;
-drop table symbol cascade constraints;
+DROP TABLE symbol_category CASCADE CONSTRAINTS;
+DROP TABLE daily_price CASCADE CONSTRAINTS;
+DROP TABLE symbol_profile CASCADE CONSTRAINTS;
+DROP TABLE category CASCADE CONSTRAINTS;
+DROP TABLE symbol CASCADE CONSTRAINTS;
 
-create table symbol (
-   symbol_id number primary key,
-   ticker    varchar2(15) not null unique,
-   name      varchar2(255),
-   exchange  varchar2(30)
+SELECT COUNT(*) FROM SYMBOL;
+SELECT COUNT(*) FROM CATEGORY;
+SELECT COUNT(*) FROM SYMBOL_PROFILE;
+SELECT COUNT(*) FROM SYMBOL_CATEGORY;
+SELECT COUNT(*) FROM DAILY_PRICE;
+
+CREATE TABLE symbol (
+   symbol_id NUMBER PRIMARY KEY,
+   ticker    VARCHAR2(15) NOT NULL UNIQUE,
+   name      VARCHAR2(255),
+   exchange  VARCHAR2(30)
 );
 
-create table symbol_profile (
-   symbol_id   number primary key,
-   currency    char(3) not null,
-   country     varchar2(60) not null,
-   description varchar2(400),
-   constraint fk_symbol_profile foreign key ( symbol_id )
-      references symbol ( symbol_id )
+CREATE TABLE symbol_profile (
+   symbol_id   NUMBER PRIMARY KEY,
+   currency    CHAR(3) NOT NULL,
+   country     VARCHAR2(60) NOT NULL,
+   description VARCHAR2(400),
+   CONSTRAINT fk_symbol_profile 
+      FOREIGN KEY (symbol_id)
+      REFERENCES symbol (symbol_id)
 );
 
-create table category (
-   category_id   number primary key,
-   category_name varchar2(60) not null,
-   category_type varchar2(30)
+CREATE TABLE category (
+   category_id   NUMBER PRIMARY KEY,
+   category_name VARCHAR2(60) NOT NULL,
+   category_type VARCHAR2(30)
 );
 
-create table daily_price (
-   symbol_id  number,
-   trade_date date,
-   open       number(12,4) not null,
-   high       number(12,4) not null,
-   low        number(12,4) not null,
-   close      number(12,4) not null,
-   adj_close  number(12,4),
-   volume     number,
-   constraint pk_daily_price primary key ( symbol_id,
-                                           trade_date ),
-   constraint fk_daily_price_symbol foreign key ( symbol_id )
-      references symbol ( symbol_id )
+CREATE TABLE daily_price (
+   symbol_id  NUMBER,
+   trade_date DATE,
+   open       NUMBER(12,4) NOT NULL,
+   high       NUMBER(12,4) NOT NULL,
+   low        NUMBER(12,4) NOT NULL,
+   close      NUMBER(12,4) NOT NULL,
+   adj_close  NUMBER(12,4),
+   volume     NUMBER,
+   CONSTRAINT pk_daily_price 
+      PRIMARY KEY (symbol_id, trade_date),
+   CONSTRAINT fk_daily_price_symbol 
+      FOREIGN KEY (symbol_id)
+      REFERENCES symbol (symbol_id)
 );
 
-create table symbol_category (
-   symbol_id     number,
-   category_id   number,
-   assigned_date date not null,
-   constraint pk_symbol_category primary key ( symbol_id,
-                                               category_id ),
-   constraint fk_symbol_category_symbol foreign key ( symbol_id )
-      references symbol ( symbol_id ),
-   constraint fk_symbol_category_category foreign key ( category_id )
-      references category ( category_id )
+CREATE TABLE symbol_category (
+   symbol_id     NUMBER,
+   category_id   NUMBER,
+   assigned_date DATE NOT NULL,
+   CONSTRAINT pk_symbol_category 
+      PRIMARY KEY (symbol_id, category_id),
+   CONSTRAINT fk_symbol_category_symbol 
+      FOREIGN KEY (symbol_id)
+      REFERENCES symbol (symbol_id),
+   CONSTRAINT fk_symbol_category_category 
+      FOREIGN KEY (category_id)
+      REFERENCES category (category_id)
 );
 
-ALTER TABLE SYMBOL MODIFY name VARCHAR2(255);
-
-DELETE FROM SYMBOL_CATEGORY;
-DELETE FROM DAILY_PRICE;
-DELETE FROM SYMBOL_PROFILE;
-DELETE FROM CATEGORY;
-DELETE FROM SYMBOL;
 COMMIT;
-

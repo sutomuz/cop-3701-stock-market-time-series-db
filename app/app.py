@@ -177,7 +177,8 @@ class StockExplorerApp:
 
         btn_row = ttk.Frame(main)
         btn_row.pack(fill=tk.X, pady=(0, 4))
-        self.run_btn = ttk.Button(btn_row, text="Run query", command=self._on_run)
+        self.run_btn = ttk.Button(
+            btn_row, text="Run query", command=self._on_run)
         self.run_btn.pack(side=tk.LEFT)
 
         self.status_var = tk.StringVar(value="Ready.")
@@ -188,8 +189,10 @@ class StockExplorerApp:
         tree_frame = ttk.Frame(main)
         tree_frame.pack(fill=tk.BOTH, expand=True)
         self.tree = ttk.Treeview(tree_frame, show="headings")
-        vsb = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL, command=self.tree.yview)
-        hsb = ttk.Scrollbar(tree_frame, orient=tk.HORIZONTAL, command=self.tree.xview)
+        vsb = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL,
+                            command=self.tree.yview)
+        hsb = ttk.Scrollbar(tree_frame, orient=tk.HORIZONTAL,
+                            command=self.tree.xview)
         self.tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
         self.tree.grid(row=0, column=0, sticky="nsew")
         vsb.grid(row=0, column=1, sticky="ns")
@@ -244,7 +247,8 @@ class StockExplorerApp:
                 width=38,
             )
         else:
-            widget = ttk.Entry(self._input_container, textvariable=var, width=40)
+            widget = ttk.Entry(self._input_container,
+                               textvariable=var, width=40)
         widget.grid(row=row, column=1, sticky=tk.W, pady=2)
         self._field_widgets[key] = widget
         if hint:
@@ -313,7 +317,8 @@ class StockExplorerApp:
                 exchanges = []
             self.root.after(
                 0,
-                lambda: self._apply_dropdown_values(cats, countries, exchanges),
+                lambda: self._apply_dropdown_values(
+                    cats, countries, exchanges),
             )
 
         threading.Thread(target=work, daemon=True).start()
@@ -398,7 +403,8 @@ class StockExplorerApp:
             self.tree.heading(c, text=c.replace("_", " ").title())
             self.tree.column(c, width=120, minwidth=64, stretch=tk.YES)
         for row in rows:
-            self.tree.insert("", tk.END, values=tuple(format_cell(v) for v in row))
+            self.tree.insert("", tk.END, values=tuple(
+                format_cell(v) for v in row))
 
     def _on_run(self) -> None:
         if self._busy:
