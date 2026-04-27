@@ -16,11 +16,6 @@ USERNAME = os.getenv("DB_USERNAME")
 PASSWORD = os.getenv("DB_PASSWORD")
 DSN = os.getenv("DB_DSN")
 
-print("ENV PATH:", BASE_DIR / ".env")
-print("ENV EXISTS:", (BASE_DIR / ".env").exists())
-print("USERNAME:", USERNAME)
-print("DSN:", DSN)
-
 conn = oracledb.connect(user=USERNAME, password=PASSWORD, dsn=DSN)
 cursor = conn.cursor()
 

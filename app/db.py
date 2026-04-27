@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import os
 import threading
+from pathlib import Path
 
 import oracledb
 from dotenv import load_dotenv
 
-load_dotenv()
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 # DB Creds.
 USERNAME = os.getenv("DB_USERNAME")
